@@ -4,7 +4,7 @@ defmodule XCUID.MixProject do
   def project do
     [
       app: :xcuid,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -21,14 +21,15 @@ defmodule XCUID.MixProject do
   def application do
     [
       mod: {XCUID.Application, []},
-      extra_applications: [:logger]
+      extra_applications: [:logger, :crypto]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:benchee, "~> 1.0", only: :dev}
+      {:benchee, "~> 1.0", only: :dev},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 
